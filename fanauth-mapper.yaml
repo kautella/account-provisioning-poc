@@ -135,6 +135,8 @@ Okta-AWS-Networking:
       arn: arn:aws:iam::101830540795:role/Networking-INFRADEV-RW
     lab:
       arn: arn:aws:iam::578857943126:role/Networking-LAB-RW
+    new_account_3:
+      arn: arn:aws:iam::112045703293:role/Networking-NEW_ACCOUNT_3-RW
     newacc2:
       arn: arn:aws:iam::112045703293:role/Networking-NEWACC2-RW
     plm:
@@ -176,6 +178,8 @@ Okta-AWS-Operations:
       arn: arn:aws:iam::101830540795:role/Operations-INFRADEV-RW
     lab:
       arn: arn:aws:iam::578857943126:role/Operations-LAB-RW
+    new_account_3:
+      arn: arn:aws:iam::112045703293:role/Operations-NEW_ACCOUNT_3-RW
     newacc2:
       arn: arn:aws:iam::112045703293:role/Operations-NEWACC2-RW
     plm:
@@ -215,6 +219,8 @@ Okta-AWS-Security:
       arn: arn:aws:iam::101830540795:role/Security-INFRADEV-RW
     lab:
       arn: arn:aws:iam::578857943126:role/Security-LAB-RW
+    new_account_3:
+      arn: arn:aws:iam::112045703293:role/Security-NEW_ACCOUNT_3-RW
     newacc2:
       arn: arn:aws:iam::112045703293:role/Security-NEWACC2-RW
     plm:
