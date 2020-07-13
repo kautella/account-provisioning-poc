@@ -1,238 +1,100 @@
-#
-# These entries map directly to vault and its mounted AWS Secret backends.
-# which supports FanAuth's ability to obtain AWS temporary STS keys.
-#
-# *Primary Key*:  matches the name of the vault mounted backend and ldap group name
-# *rank*:  disambiguate multiple group memberships by higher rank.
-#          Very privileged configurations should be higher ranked than the lower ones
-#          to ensure proper access
-# *roles*: dictionary of account nicks and respective target role arn to assume
-#
-# Cloud Platform, Engineering, and Operations, full RW access
-Okta-AWS-Operations:
-  rank: 200
+Okta-AWS-Developers-Analytics:
+  rank: 10
   roles:
-    cklab:
-      arn: arn:aws:iam::708176333788:role/Operations-CKLAB-RW
-    lab:
-      arn: arn:aws:iam::578857943126:role/Operations-LAB-RW
-    clouddev:
-      arn: arn:aws:iam::109525134566:role/Operations-CLOUDDEV-RW
-    cloudtest:
-      arn: arn:aws:iam::120137451432:role/Operations-CLOUDTEST-RW
-    ecomdev:
-      arn: arn:aws:iam::015499401968:role/Operations-ECOMDEV-RW
-    ecomqc:
-      arn: arn:aws:iam::837496796497:role/Operations-ECOMQC-RW
-    ecomlpt:
-      arn: arn:aws:iam::042012399948:role/Operations-ECOMLPT-RW
-    ecomprod:
-      arn: arn:aws:iam::280420224304:role/Operations-ECOMPROD-RW
     anadev:
-      arn: arn:aws:iam::361160291213:role/Operations-ANADEV-RW
-    anaqc:
-      arn: arn:aws:iam::703472250049:role/Operations-ANAQC-RW
+      arn: arn:aws:iam::361160291213:role/Developer-ANADEV-RW
     anaprod:
-      arn: arn:aws:iam::702226105286:role/Operations-ANAPROD-RW
-    anaqubole:
-      arn: arn:aws:iam::395033687213:role/Operations-ANAQUBOLE-RW
-    infra:
-      arn: arn:aws:iam::946611947052:role/Operations-INFRA-RW
-    infradev:
-      arn: arn:aws:iam::101830540795:role/Operations-INFRADEV-RW
-    workspaces:
-      arn: arn:aws:iam::399318891724:role/Operations-WORKSPACES-RW
-    authentics-new:
-      arn: arn:aws:iam::315896828134:role/Operations-AUTHENTICS-RW
-    plm:
-      arn: arn:aws:iam::233212638440:role/Operations-PLM-RW
-    backups:
-      arn: arn:aws:iam::224899947935:role/Operations-BACKUPS-RW
-# SECOPS Engineering and Operations, should be the highest ranked one
-# full RW access
-Okta-AWS-Security:
-  rank: 900
-  roles:
-    cklab:
-      arn: arn:aws:iam::708176333788:role/Security-CKLAB-RW
-    lab:
-      arn: arn:aws:iam::578857943126:role/Security-LAB-RW
-    clouddev:
-      arn: arn:aws:iam::109525134566:role/Security-CLOUDDEV-RW
-    cloudtest:
-      arn: arn:aws:iam::120137451432:role/Security-CLOUDTEST-RW
-    ecomdev:
-      arn: arn:aws:iam::015499401968:role/Security-ECOMDEV-RW
-    ecomqc:
-      arn: arn:aws:iam::837496796497:role/Security-ECOMQC-RW
-    ecomlpt:
-      arn: arn:aws:iam::042012399948:role/Security-ECOMLPT-RW
-    ecomprod:
-      arn: arn:aws:iam::280420224304:role/Security-ECOMPROD-RW
-    anadev:
-      arn: arn:aws:iam::361160291213:role/Security-ANADEV-RW
+      arn: arn:aws:iam::702226105286:role/Developer-ANAPROD-RO
     anaqc:
-      arn: arn:aws:iam::703472250049:role/Security-ANAQC-RW
-    anaprod:
-      arn: arn:aws:iam::702226105286:role/Security-ANAPROD-RW
-    anaqubole:
-      arn: arn:aws:iam::395033687213:role/Security-ANAQUBOLE-RW
-    security:
-      arn: arn:aws:iam::954093664884:role/Security-SECURITY-RW
-    infra:
-      arn: arn:aws:iam::946611947052:role/Security-INFRA-RW
-    infradev:
-      arn: arn:aws:iam::101830540795:role/Security-INFRADEV-RW
-    workspaces:
-      arn: arn:aws:iam::399318891724:role/Security-WORKSPACES-RW
-    authentics-new:
-      arn: arn:aws:iam::315896828134:role/Security-AUTHENTICS-RW
-    plm:
-      arn: arn:aws:iam::233212638440:role/Security-PLM-RW
-# Network Engineering and Operations
-Okta-AWS-Networking:
-  rank: 100
-  roles:
-    cklab:
-      arn: arn:aws:iam::708176333788:role/Networking-CKLAB-RW
-    lab:
-      arn: arn:aws:iam::578857943126:role/Networking-LAB-RW
-    clouddev:
-      arn: arn:aws:iam::109525134566:role/Networking-CLOUDDEV-RW
-    cloudtest:
-      arn: arn:aws:iam::120137451432:role/Networking-CLOUDTEST-RW
-    ecomdev:
-      arn: arn:aws:iam::015499401968:role/Networking-ECOMDEV-RW
-    ecomqc:
-      arn: arn:aws:iam::837496796497:role/Networking-ECOMQC-RW
-    ecomlpt:
-      arn: arn:aws:iam::042012399948:role/Networking-ECOMLPT-RW
-    ecomprod:
-      arn: arn:aws:iam::280420224304:role/Networking-ECOMPROD-RW
-    anadev:
-      arn: arn:aws:iam::361160291213:role/Networking-ANADEV-RW
-    anaqc:
-      arn: arn:aws:iam::703472250049:role/Networking-ANAQC-RW
-    anaprod:
-      arn: arn:aws:iam::702226105286:role/Networking-ANAPROD-RW
-    anaqubole:
-      arn: arn:aws:iam::395033687213:role/Networking-ANAQUBOLE-RW
-    infra:
-      arn: arn:aws:iam::946611947052:role/Networking-INFRA-RW
-    infradev:
-      arn: arn:aws:iam::101830540795:role/Networking-INFRADEV-RW
-    workspaces:
-      arn: arn:aws:iam::399318891724:role/Networking-WORKSPACES-RW
-    authentics-new:
-      arn: arn:aws:iam::315896828134:role/Networking-AUTHENTICS-RW
-    plm:
-      arn: arn:aws:iam::233212638440:role/Networking-PLM-RW
-# ECOM Standard Developer Access:  RW to Lab/Dev, RO to QC/Prod
-Okta-AWS-Developers-ECOM:
-  rank: 40
-  roles:
+      arn: arn:aws:iam::703472250049:role/Developer-ANAQC-RO
     cklab:
       arn: arn:aws:iam::708176333788:role/Developer-CKLAB-RW
     lab:
       arn: arn:aws:iam::578857943126:role/Developer-LAB-RW
-    ecomdev:
-      arn: arn:aws:iam::015499401968:role/Developer-ECOMDEV-RW
-    ecomqc:
-      arn: arn:aws:iam::837496796497:role/Developer-ECOMQC-RO
-    ecomlpt:
-      arn: arn:aws:iam::042012399948:role/Developer-ECOMLPT-RO
-    ecomprod:
-      arn: arn:aws:iam::280420224304:role/Developer-ECOMPROD-RO
-# Cloud Developer Access:  RW to Lab/CloudDev, RO to Infra/InfraDev
+Okta-AWS-Developers-Analytics-PROD:
+  rank: 30
+  roles:
+    anadev:
+      arn: arn:aws:iam::361160291213:role/Developer-ANADEV-RW
+    anaprod:
+      arn: arn:aws:iam::702226105286:role/Developer-ANAPROD-RW
+    anaqc:
+      arn: arn:aws:iam::703472250049:role/Developer-ANAQC-RW
+    cklab:
+      arn: arn:aws:iam::708176333788:role/Developer-CKLAB-RW
+    lab:
+      arn: arn:aws:iam::578857943126:role/Developer-LAB-RW
+Okta-AWS-Developers-Analytics-QC:
+  rank: 20
+  roles:
+    anadev:
+      arn: arn:aws:iam::361160291213:role/Developer-ANADEV-RW
+    anaprod:
+      arn: arn:aws:iam::702226105286:role/Developer-ANAPROD-RO
+    anaqc:
+      arn: arn:aws:iam::703472250049:role/Developer-ANAQC-RW
+    cklab:
+      arn: arn:aws:iam::708176333788:role/Developer-CKLAB-RW
+    lab:
+      arn: arn:aws:iam::578857943126:role/Developer-LAB-RW
 Okta-AWS-Developers-Cloud:
   rank: 45
   roles:
     cklab:
       arn: arn:aws:iam::708176333788:role/Developer-CKLAB-RW
-    lab:
-      arn: arn:aws:iam::578857943126:role/Developer-LAB-RW
     clouddev:
       arn: arn:aws:iam::109525134566:role/Developer-CLOUDDEV-RW
     infra:
       arn: arn:aws:iam::946611947052:role/Developer-INFRA-RO
     infradev:
       arn: arn:aws:iam::101830540795:role/Developer-INFRADEV-RO
-# ECOM QC Developer Access:  RW to Lab/Dev/QC, RO to Prod
-Okta-AWS-Developers-ECOM-QC:
-  rank: 50
+    lab:
+      arn: arn:aws:iam::578857943126:role/Developer-LAB-RW
+Okta-AWS-Developers-ECOM:
+  rank: 40
   roles:
     cklab:
       arn: arn:aws:iam::708176333788:role/Developer-CKLAB-RW
-    lab:
-      arn: arn:aws:iam::578857943126:role/Developer-LAB-RW
     ecomdev:
       arn: arn:aws:iam::015499401968:role/Developer-ECOMDEV-RW
-    ecomqc:
-      arn: arn:aws:iam::837496796497:role/Developer-ECOMQC-RW
     ecomlpt:
-      arn: arn:aws:iam::042012399948:role/Developer-ECOMLPT-RW
+      arn: arn:aws:iam::042012399948:role/Developer-ECOMLPT-RO
     ecomprod:
       arn: arn:aws:iam::280420224304:role/Developer-ECOMPROD-RO
-# ECOM Prod Developer Access:  RW to Lab/Dev/QC/Prod
+    ecomqc:
+      arn: arn:aws:iam::837496796497:role/Developer-ECOMQC-RO
+    lab:
+      arn: arn:aws:iam::578857943126:role/Developer-LAB-RW
 Okta-AWS-Developers-ECOM-PROD:
   rank: 60
   roles:
     cklab:
       arn: arn:aws:iam::708176333788:role/Developer-CKLAB-RW
-    lab:
-      arn: arn:aws:iam::578857943126:role/Developer-LAB-RW
     ecomdev:
       arn: arn:aws:iam::015499401968:role/Developer-ECOMDEV-RW
-    ecomqc:
-      arn: arn:aws:iam::837496796497:role/Developer-ECOMQC-RW
     ecomlpt:
       arn: arn:aws:iam::042012399948:role/Developer-ECOMLPT-RW
     ecomprod:
       arn: arn:aws:iam::280420224304:role/Developer-ECOMPROD-RW
-# Analytics Standard Developer Access:  RW to Lab/Dev, RO to QC/Prod
-Okta-AWS-Developers-Analytics:
-  rank: 10
+    ecomqc:
+      arn: arn:aws:iam::837496796497:role/Developer-ECOMQC-RW
+    lab:
+      arn: arn:aws:iam::578857943126:role/Developer-LAB-RW
+Okta-AWS-Developers-ECOM-QC:
+  rank: 50
   roles:
     cklab:
       arn: arn:aws:iam::708176333788:role/Developer-CKLAB-RW
+    ecomdev:
+      arn: arn:aws:iam::015499401968:role/Developer-ECOMDEV-RW
+    ecomlpt:
+      arn: arn:aws:iam::042012399948:role/Developer-ECOMLPT-RW
+    ecomprod:
+      arn: arn:aws:iam::280420224304:role/Developer-ECOMPROD-RO
+    ecomqc:
+      arn: arn:aws:iam::837496796497:role/Developer-ECOMQC-RW
     lab:
       arn: arn:aws:iam::578857943126:role/Developer-LAB-RW
-    anadev:
-      arn: arn:aws:iam::361160291213:role/Developer-ANADEV-RW
-    anaqc:
-      arn: arn:aws:iam::703472250049:role/Developer-ANAQC-RO
-    anaprod:
-      arn: arn:aws:iam::702226105286:role/Developer-ANAPROD-RO
-# Analytics QC Developer Access:  RW to Lab/Dev/QC, RO to Prod
-Okta-AWS-Developers-Analytics-QC:
-  rank: 20
-  roles:
-    cklab:
-      arn: arn:aws:iam::708176333788:role/Developer-CKLAB-RW
-    lab:
-      arn: arn:aws:iam::578857943126:role/Developer-LAB-RW
-    anadev:
-      arn: arn:aws:iam::361160291213:role/Developer-ANADEV-RW
-    anaqc:
-      arn: arn:aws:iam::703472250049:role/Developer-ANAQC-RW
-    anaprod:
-      arn: arn:aws:iam::702226105286:role/Developer-ANAPROD-RO
-# Analytics Prod Developer Access:  RW to Lab/Dev/QC/Prod
-Okta-AWS-Developers-Analytics-PROD:
-  rank: 30
-  roles:
-    cklab:
-      arn: arn:aws:iam::708176333788:role/Developer-CKLAB-RW
-    lab:
-      arn: arn:aws:iam::578857943126:role/Developer-LAB-RW
-    anadev:
-      arn: arn:aws:iam::361160291213:role/Developer-ANADEV-RW
-    anaqc:
-      arn: arn:aws:iam::703472250049:role/Developer-ANAQC-RW
-    anaprod:
-      arn: arn:aws:iam::702226105286:role/Developer-ANAPROD-RW
-# Lab only access: RW
-# lowest ranked as it has minimal access.
 Okta-AWS-Lab:
   rank: 5
   roles:
@@ -240,3 +102,124 @@ Okta-AWS-Lab:
       arn: arn:aws:iam::708176333788:role/Developer-CKLAB-RW
     lab:
       arn: arn:aws:iam::578857943126:role/Developer-LAB-RW
+Okta-AWS-Networking:
+  rank: 100
+  roles:
+    anadev:
+      arn: arn:aws:iam::361160291213:role/Networking-ANADEV-RW
+    anaprod:
+      arn: arn:aws:iam::702226105286:role/Networking-ANAPROD-RW
+    anaqc:
+      arn: arn:aws:iam::703472250049:role/Networking-ANAQC-RW
+    anaqubole:
+      arn: arn:aws:iam::395033687213:role/Networking-ANAQUBOLE-RW
+    authentics-new:
+      arn: arn:aws:iam::315896828134:role/Networking-AUTHENTICS-RW
+    cklab:
+      arn: arn:aws:iam::708176333788:role/Networking-CKLAB-RW
+    clouddev:
+      arn: arn:aws:iam::109525134566:role/Networking-CLOUDDEV-RW
+    cloudtest:
+      arn: arn:aws:iam::120137451432:role/Networking-CLOUDTEST-RW
+    ecomdev:
+      arn: arn:aws:iam::015499401968:role/Networking-ECOMDEV-RW
+    ecomlpt:
+      arn: arn:aws:iam::042012399948:role/Networking-ECOMLPT-RW
+    ecomprod:
+      arn: arn:aws:iam::280420224304:role/Networking-ECOMPROD-RW
+    ecomqc:
+      arn: arn:aws:iam::837496796497:role/Networking-ECOMQC-RW
+    infra:
+      arn: arn:aws:iam::946611947052:role/Networking-INFRA-RW
+    infradev:
+      arn: arn:aws:iam::101830540795:role/Networking-INFRADEV-RW
+    lab:
+      arn: arn:aws:iam::578857943126:role/Networking-LAB-RW
+    newacc2:
+      arn: arn:aws:iam::112045703293:role/Networking-NEWACC2-RW
+    plm:
+      arn: arn:aws:iam::233212638440:role/Networking-PLM-RW
+    workspaces:
+      arn: arn:aws:iam::399318891724:role/Networking-WORKSPACES-RW
+Okta-AWS-Operations:
+  rank: 200
+  roles:
+    anadev:
+      arn: arn:aws:iam::361160291213:role/Operations-ANADEV-RW
+    anaprod:
+      arn: arn:aws:iam::702226105286:role/Operations-ANAPROD-RW
+    anaqc:
+      arn: arn:aws:iam::703472250049:role/Operations-ANAQC-RW
+    anaqubole:
+      arn: arn:aws:iam::395033687213:role/Operations-ANAQUBOLE-RW
+    authentics-new:
+      arn: arn:aws:iam::315896828134:role/Operations-AUTHENTICS-RW
+    backups:
+      arn: arn:aws:iam::224899947935:role/Operations-BACKUPS-RW
+    cklab:
+      arn: arn:aws:iam::708176333788:role/Operations-CKLAB-RW
+    clouddev:
+      arn: arn:aws:iam::109525134566:role/Operations-CLOUDDEV-RW
+    cloudtest:
+      arn: arn:aws:iam::120137451432:role/Operations-CLOUDTEST-RW
+    ecomdev:
+      arn: arn:aws:iam::015499401968:role/Operations-ECOMDEV-RW
+    ecomlpt:
+      arn: arn:aws:iam::042012399948:role/Operations-ECOMLPT-RW
+    ecomprod:
+      arn: arn:aws:iam::280420224304:role/Operations-ECOMPROD-RW
+    ecomqc:
+      arn: arn:aws:iam::837496796497:role/Operations-ECOMQC-RW
+    infra:
+      arn: arn:aws:iam::946611947052:role/Operations-INFRA-RW
+    infradev:
+      arn: arn:aws:iam::101830540795:role/Operations-INFRADEV-RW
+    lab:
+      arn: arn:aws:iam::578857943126:role/Operations-LAB-RW
+    newacc2:
+      arn: arn:aws:iam::112045703293:role/Operations-NEWACC2-RW
+    plm:
+      arn: arn:aws:iam::233212638440:role/Operations-PLM-RW
+    workspaces:
+      arn: arn:aws:iam::399318891724:role/Operations-WORKSPACES-RW
+Okta-AWS-Security:
+  rank: 900
+  roles:
+    anadev:
+      arn: arn:aws:iam::361160291213:role/Security-ANADEV-RW
+    anaprod:
+      arn: arn:aws:iam::702226105286:role/Security-ANAPROD-RW
+    anaqc:
+      arn: arn:aws:iam::703472250049:role/Security-ANAQC-RW
+    anaqubole:
+      arn: arn:aws:iam::395033687213:role/Security-ANAQUBOLE-RW
+    authentics-new:
+      arn: arn:aws:iam::315896828134:role/Security-AUTHENTICS-RW
+    cklab:
+      arn: arn:aws:iam::708176333788:role/Security-CKLAB-RW
+    clouddev:
+      arn: arn:aws:iam::109525134566:role/Security-CLOUDDEV-RW
+    cloudtest:
+      arn: arn:aws:iam::120137451432:role/Security-CLOUDTEST-RW
+    ecomdev:
+      arn: arn:aws:iam::015499401968:role/Security-ECOMDEV-RW
+    ecomlpt:
+      arn: arn:aws:iam::042012399948:role/Security-ECOMLPT-RW
+    ecomprod:
+      arn: arn:aws:iam::280420224304:role/Security-ECOMPROD-RW
+    ecomqc:
+      arn: arn:aws:iam::837496796497:role/Security-ECOMQC-RW
+    infra:
+      arn: arn:aws:iam::946611947052:role/Security-INFRA-RW
+    infradev:
+      arn: arn:aws:iam::101830540795:role/Security-INFRADEV-RW
+    lab:
+      arn: arn:aws:iam::578857943126:role/Security-LAB-RW
+    newacc2:
+      arn: arn:aws:iam::112045703293:role/Security-NEWACC2-RW
+    plm:
+      arn: arn:aws:iam::233212638440:role/Security-PLM-RW
+    security:
+      arn: arn:aws:iam::954093664884:role/Security-SECURITY-RW
+    workspaces:
+      arn: arn:aws:iam::399318891724:role/Security-WORKSPACES-RW
